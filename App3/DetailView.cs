@@ -16,6 +16,7 @@ namespace App3
     [Activity(Label = "DetailView")]
     public class DetailView : AppCompatActivity
     {
+        Database db;
         EditText title;
         EditText subtitle;
         EditText distance;
@@ -28,8 +29,8 @@ namespace App3
             Android.Support.V7.App.ActionBar actionBar = this.SupportActionBar;
             actionBar.SetHomeButtonEnabled(true);
             actionBar.SetDisplayHomeAsUpEnabled(true);
-
-
+            db = new Database();
+            db.CreateDatabse();
             title = FindViewById<EditText>(Resource.Id.title);
             subtitle = FindViewById<EditText>(Resource.Id.subtitle);
            distance = FindViewById<EditText>(Resource.Id.distance);
@@ -55,7 +56,7 @@ namespace App3
             }
         }
 
-        public override bool OnOptionsItemSelected(IMenuItem item)
+        /*public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch(item.ItemId)
             {
@@ -67,6 +68,24 @@ namespace App3
                     SetResult(Result.Ok, intent);
                     Finish();
 
+                    return true;
+
+                default:
+                    return base.OnOptionsItemSelected(item);
+
+            }
+        }*/
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    listItem obj = new listItem();
+
+                    obj.Title = title.Text;
+                    obj.Subtitle = subtitle.Text;
+                    obj.Distance = distance.Text;
+                    db.Insert(obj);
                     return true;
 
                 default:

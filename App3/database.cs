@@ -205,12 +205,10 @@ namespace App3
 
         }
 
-
-
-
-
-
-
+        internal void Insert(listItem obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }
