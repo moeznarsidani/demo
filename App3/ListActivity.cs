@@ -34,13 +34,13 @@ namespace App3
             // Create your application here
         }
 
-        private List<ListItem> GenerateListData()
+        private List<listItem> GenerateListData()
         {
-            List<ListItem> data = new List<ListItem>();
+            List<listItem> data = new List<listItem>();
             for (int i = 0; i < 30; i++)
             {
 
-                ListItem obj = new ListItem();
+                listItem obj = new listItem();
                 obj.Id = i;
                 obj.Title = "Title" + i;
                 obj.Subtitle = "Address" + i;
@@ -89,7 +89,7 @@ namespace App3
 
         private void showData()
         {
-            List<ListItem> dataList;
+            List<listItem> dataList;
             progressBar.Visibility = ViewStates.Visible;
             dataList = GenerateListData();
             progressBar.Visibility = ViewStates.Gone;

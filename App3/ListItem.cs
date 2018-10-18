@@ -13,7 +13,7 @@ using SQLite;
 
 namespace App3
 {
-    class ListItem
+    class listItem
     {
        [PrimaryKey,AutoIncrement] 
        public int Id { get; set; }

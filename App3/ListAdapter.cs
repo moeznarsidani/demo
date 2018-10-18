@@ -13,18 +13,18 @@ using Bumptech.Glide;
 
 namespace App3
 {
-    class ListAdapter : BaseAdapter<ListItem>
+    class ListAdapter : BaseAdapter<listItem>
     {
 
-        private List<ListItem> listData;
+        private List<listItem> listData;
         private Activity context;
-        public ListAdapter(Activity listActivity, List<ListItem> listData) : base()
+        public ListAdapter(Activity listActivity, List<listItem> listData) : base()
         {
             this.context = listActivity;
             this.listData = listData;
         }
 
-        public override ListItem this[int position]
+        public override listItem this[int position]
         {
             get
             {
@@ -59,7 +59,7 @@ namespace App3
                 view = context.LayoutInflater.Inflate(Resource.Layout.list_item, null, false);
 
             }
-            ListItem item = this[position];
+            listItem item = this[position];
             view.FindViewById<TextView>(Resource.Id.textView3).Text = item.Title;
             view.FindViewById<TextView>(Resource.Id.textView2).Text = item.Subtitle;
             view.FindViewById<TextView>(Resource.Id.textView1).Text = item.Distance;
